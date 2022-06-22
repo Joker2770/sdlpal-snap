@@ -78,6 +78,7 @@ parts:
       - libgl1
       - libglvnd0
       - libglx0
+      - libpulse0
     override-build: |
       cd unix
       make -j $(nproc)
