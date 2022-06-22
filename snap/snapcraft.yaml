@@ -35,7 +35,7 @@ description: |
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
-base: core20
+base: core18
 license: 'GPL-3.0'
 
 plugs: # plugs for theming, font settings, cursor and to use gtk3 file chooser
@@ -70,7 +70,7 @@ apps:
     command: usr/local/bin/launcher.sh
     environment:
       LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
-    extensions: [gnome-3-38]
+    extensions: [gnome-3-28]
     plugs:
       - home
       - desktop
