@@ -38,9 +38,39 @@ confinement: strict # use 'strict' once you have the right plugs and slots
 base: core20
 license: 'GPL-3.0'
 
+plugs: # plugs for theming, font settings, cursor and to use gtk3 file chooser
+  gtk-3-themes:
+    interface: content
+    target: $SNAP/data-dir/themes
+    default-provider: gtk-common-themes
+  icon-themes:
+    interface: content
+    target: $SNAP/data-dir/icons
+    default-provider: gtk-common-themes
+  sound-themes:
+    interface: content
+    target: $SNAP/data-dir/sounds
+    default-provider: gtk-common-themes
+
+layout:
+  /usr/share/midi/freepats:
+    bind: $SNAP/usr/share/midi/freepats
+  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib:
+    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib
+  /usr/share/alsa:
+    bind: $SNAP/usr/share/alsa
+  /etc/timidity:
+    bind: $SNAP/etc/timidity
+  /etc/fonts:
+    bind: $SNAP/etc/fonts
+
 apps:
   sdlpal:
+    command-chain: ["snap/command-chain/alsa-launch"]
     command: usr/local/bin/launcher.sh
+    environment:
+      LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
+    extensions: [gnome-3-38]
     plugs:
       - home
       - desktop
@@ -51,9 +81,24 @@ apps:
       - opengl
       - removable-media
       - audio-playback
+      - gsettings
+      - pulseaudio
+      - alsa
 
 parts:
+  alsa-mixin:
+    plugin: dump
+    source: https://github.com/diddlesnaps/snapcraft-alsa.git
+    source-subdir: snapcraft-assets
+    build-packages:
+      - libasound2-dev
+    stage-packages:
+      - libasound2
+      - libasound2-plugins
+      - yad
+
   sdlpal:
+    after: [alsa-mixin]
     plugin: make
     source: https://github.com/sdlpal/sdlpal.git
     source-type: git
@@ -79,6 +124,9 @@ parts:
       - libglvnd0
       - libglx0
       - libpulse0
+      - libmodplug1
+      - libsndfile1
+      - freepats
     override-build: |
       cd unix
       make -j $(nproc)
