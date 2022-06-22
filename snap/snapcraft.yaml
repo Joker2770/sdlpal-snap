@@ -37,12 +37,10 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 base: core20
 license: 'GPL-3.0'
-architectures:
-  - build-on: amd64
 
 apps:
   sdlpal:
-    command: usr/local/bin/sdlpal
+    command: usr/local/bin/launcher.sh
     plugs:
       - home
       - desktop
