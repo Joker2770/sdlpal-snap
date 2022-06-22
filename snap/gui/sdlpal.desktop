@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=2.0
+Encoding=UTF-8
+Name=sdlpal
+Comment=SDL-based reimplementation of the classic Chinese-language RPG known as PAL.
+Exec=sdlpal
+Terminal=false
+Type=Application
+Categories=Game;
+Icon=${SNAP}/meta/gui/sdlpal.png
