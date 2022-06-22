@@ -58,7 +58,6 @@ parts:
     source: https://github.com/sdlpal/sdlpal.git
     source-type: git
     source-branch: master
-    source-subdir: unix
     build-packages:
       - gcc
       - make
@@ -77,9 +76,10 @@ parts:
       - libopus0
       - libopusfile0
     override-build: |
+      cd unix
       make -j $(nproc)
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
-      cp ./sdlpal ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
+      cp ./sdlpal ./sdlpal.cfg ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
 
   include-launcher:
     plugin: dump
