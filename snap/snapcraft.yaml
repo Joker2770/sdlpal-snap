@@ -29,7 +29,10 @@ description: |
 
   **put resources here: ~/snap/sdlpal/current/**
   
-  including but not limited to:~/snap/sdlpal/current/*.mkf
+  including but not limited to:
+  ~/snap/sdlpal/current/Musics/*.mid
+  ~/snap/sdlpal/current/*.mkf
+  ~/snap/sdlpal/current/*.dat
 
 # icon: gui/icon.png
 
@@ -37,6 +40,11 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 base: core18
 license: 'GPL-3.0'
+architectures:
+  - build-on: amd64
+  - build-on: armhf
+  - build-on: arm64
+  - build-on: ppc64el
 
 plugs: # plugs for theming, font settings, cursor and to use gtk3 file chooser
   gtk-3-themes:
