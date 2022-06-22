@@ -75,6 +75,9 @@ parts:
       - libvorbis0a
       - libopus0
       - libopusfile0
+      - libgl1
+      - libglvnd0
+      - libglx0
     override-build: |
       cd unix
       make -j $(nproc)
