@@ -29,7 +29,7 @@ description: |
 
   **put resources here: ~/snap/sdlpal/current/**
   
-  e.g.:~/snap/sdlpal/current/*.mkf
+  including but not limited to:~/snap/sdlpal/current/*.mkf
 
 # icon: gui/icon.png
 
@@ -79,7 +79,7 @@ parts:
       cd unix
       make -j $(nproc)
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
-      cp ./sdlpal ./sdlpal.cfg ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
+      cp ./sdlpal ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
 
   include-launcher:
     plugin: dump
