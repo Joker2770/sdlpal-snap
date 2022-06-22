@@ -77,7 +77,7 @@ parts:
       - libopus0
       - libopusfile0
     override-build: |
-      snapcraftctl build
+      make -j $(nproc)
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
       cp ./sdlpal ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
 
