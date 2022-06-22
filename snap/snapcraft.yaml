@@ -41,7 +41,7 @@ architectures:
   - build-on: amd64
 
 apps:
-  sanmill:
+  sdlpal:
     command: usr/local/bin/sdlpal
     plugs:
       - home
@@ -55,7 +55,7 @@ apps:
       - audio-playback
 
 parts:
-  sanmill:
+  sdlpal:
     plugin: make
     source: https://github.com/sdlpal/sdlpal.git
     source-type: git
