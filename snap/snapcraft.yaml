@@ -62,6 +62,20 @@ parts:
     build-packages:
       - gcc
       - make
+      - libsdl2-dev
+      - libsdl2-mixer-dev
+      - libmad0-dev
+      - libogg-dev
+      - libvorbis-dev
+      - libopus-dev
+    stage-packages:
+      - libsdl2-2.0-0
+      - libsdl2-mixer-2.0-0
+      - libmad0
+      - libogg0
+      - libvorbis0a
+      - libopus0
+      - libopusfile0
     override-build: |
       snapcraftctl build
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
