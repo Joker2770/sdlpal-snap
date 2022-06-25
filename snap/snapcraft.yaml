@@ -27,9 +27,9 @@ description: |
   SDLPAL is an SDL-based cross-platform reimplementation
   of the classic Chinese RPG game known as PAL.
 
-  **put resources here: ~/snap/sdlpal/current/**
+  **Please put resources here: ~/snap/sdlpal/current/**
   
-  including but not limited to:
+  Necessary resources including but not limited to:
   ~/snap/sdlpal/current/Musics/*.mid
   ~/snap/sdlpal/current/*.mkf
   ~/snap/sdlpal/current/*.dat
