@@ -153,4 +153,7 @@ parts:
       - -README*
       - -LICENSE
       - -snap
+    override-build: |
+      snapcraftctl build
+      chmod +x launcher.sh
 
